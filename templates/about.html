@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="mn">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Хогийн төрлүүд 🐼</title>
+
+<style>
+
+/* ================================
+   RESET
+================================ */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e8fff0,
+            #eef8ff
+        );
+
+    color: #173b29;
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+header {
+
+    height: 75px;
+
+    padding: 0 7%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    background: rgba(255,255,255,0.92);
+
+    box-shadow:
+        0 5px 20px
+        rgba(0,0,0,0.05);
+
+}
+
+.logo {
+
+    font-size: 27px;
+
+    font-weight: bold;
+
+}
+
+
+nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+
+nav a {
+
+    display: inline-block;
+
+    text-decoration: none !important;
+
+    color: #173b29;
+
+    font-weight: bold;
+
+    font-size: 16px;
+
+    padding: 10px 16px;
+
+    border-radius: 12px;
+
+    transition: 0.2s;
+
+}
+
+
+nav a:hover {
+
+    background: #e4f7e9;
+
+    color: #2e9d57;
+
+}
+
+
+nav a.active {
+
+    background: #2e9d57;
+
+    color: white;
+
+}
+
+
+/* ================================
+   MAIN
+================================ */
+
+.container {
+
+    width: 100%;
+
+    max-width: 1150px;
+
+    margin: auto;
+
+    padding: 55px 25px 70px;
+
+}
+
+
+/* ================================
+   TITLE
+================================ */
+
+.title {
+
+    text-align: center;
+
+    margin-bottom: 45px;
+
+}
+
+
+.title h1 {
+
+    font-size: 46px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.title h1 span {
+
+    color: #2e9d57;
+
+}
+
+
+.title p {
+
+    color: #61756a;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+}
+
+
+/* ================================
+   CARDS
+================================ */
+
+.cards {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+}
+
+
+.card {
+
+    background: white;
+
+    border-radius: 25px;
+
+    padding: 28px;
+
+    text-align: center;
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,0.07);
+
+    transition:
+        transform 0.25s,
+        box-shadow 0.25s;
+
+}
+
+
+.card:hover {
+
+    transform:
+        translateY(-7px);
+
+    box-shadow:
+        0 20px 40px
+        rgba(0,0,0,0.12);
+
+}
+
+
+.card .emoji {
+
+    font-size: 60px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.card h2 {
+
+    font-size: 23px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.card p {
+
+    color: #61756a;
+
+    line-height: 1.6;
+
+    font-size: 16px;
+
+}
+
+
+.category {
+
+    display: inline-block;
+
+    margin-top: 15px;
+
+    padding: 8px 14px;
+
+    border-radius: 20px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+}
+
+
+/* ================================
+   CATEGORY COLORS
+================================ */
+
+.recycle {
+
+    background: #e4f7e9;
+
+    color: #247144;
+
+}
+
+
+.paper {
+
+    background: #fff4d6;
+
+    color: #9a7110;
+
+}
+
+
+.food {
+
+    background: #ffe9e3;
+
+    color: #c55335;
+
+}
+
+
+.danger {
+
+    background: #ffe1e1;
+
+    color: #c0392b;
+
+}
+
+
+.other {
+
+    background: #eeeeee;
+
+    color: #555;
+
+}
+
+
+/* ================================
+   PANDA TIP
+================================ */
+
+.tip {
+
+    margin-top: 45px;
+
+    background: white;
+
+    border-radius: 25px;
+
+    padding: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,0.07);
+
+}
+
+
+.panda {
+
+    font-size: 75px;
+
+}
+
+
+.tip-text h2 {
+
+    margin-bottom: 8px;
+
+    font-size: 25px;
+
+}
+
+
+.tip-text p {
+
+    color: #61756a;
+
+    line-height: 1.6;
+
+    font-size: 17px;
+
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media(max-width: 850px) {
+
+    .cards {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media(max-width: 600px) {
+
+    header {
+
+        padding: 0 15px;
+
+    }
+
+
+    .logo {
+
+        font-size: 20px;
+
+    }
+
+
+    nav {
+
+        gap: 3px;
+
+    }
+
+
+    nav a {
+
+        font-size: 12px;
+
+        padding: 8px;
+
+    }
+
+
+    .title h1 {
+
+        font-size: 34px;
+
+    }
+
+
+    .cards {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .tip {
+
+        flex-direction: column;
+
+        text-align: center;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================================
+     HEADER
+================================ -->
+
+<header>
+
+    <div class="logo">
+
+        🐼 Зөв Ангилья
+
+    </div>
+
+
+    <nav>
+
+        <a href="/">
+
+            🏠 Нүүр
+
+        </a>
+
+
+        <a href="/classify">
+
+            📷 Хог ангилах
+
+        </a>
+
+
+        <a
+            href="/about"
+            class="active">
+
+            ♻️ Хогийн төрлүүд
+
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- ================================
+     MAIN
+================================ -->
+
+<main class="container">
+
+
+    <div class="title">
+
+        <h1>
+
+            ♻️ Хогийн
+            <span>төрлүүд</span>
+
+        </h1>
+
+
+        <p>
+
+            Хогоо зөв ангилбал байгаль дэлхийдээ
+            тусалж чадна! 🌍🌱
+
+        </p>
+
+    </div>
+
+
+    <!-- ============================
+         WASTE CARDS
+    ============================= -->
+
+
+    <div class="cards">
+
+
+        <!-- BATTERY -->
+
+        <div class="card">
+
+            <div class="emoji">
+
+                🔋
+
+            </div>
+
+            <h2>
+
+                Батерей
+
+            </h2>
+
+            <p>
+
+                Батерей нь аюултай хог.
+                Энгийн хогтой хамт бүү хаяарай.
+
+            </p>
+
+            <span class="category danger">
+
+                ⚠️ Аюултай хог
+
+            </span>
+
+        </div>
+
+
+        <!-- CARDBOARD -->
+
+        <div class="card">
+
+            <div class="emoji">
+
+                📦
+
+            </div>
+
+            <h2>
+
+                Картон
+
+            </h2>
+
+            <p>
+
+                Хайрцаг болон картон цаасыг
+                дахин боловсруулах боломжтой.
+
+            </p>
+
+            <span class="category paper">
+
+                📄 Цаасан хог
+
+            </span>
+
+        </div>
+
+
+        <!-- CLOTHES -->
+
+        <div class="card">
+
+            <div class="emoji">
+
+                👕
+
+            </div>
+
+            <h2>
+
+                Хувцас
+
+            </h2>
+
+            <p>
+
+                Хуучин хувцсыг тусад нь цуглуулж,
+                дахин ашиглаж болно.
+
+            </p>
+
+            <span class="category other">
+
+                🗑️ Бусад хог
+
+            </span>
+
+        </div>
+
+
+        <!-- TRASH -->
+
+        <div class="card">
+
+            <div class="emoji">
+
+                🗑️
+
+            </div>
+
+            <h2>
+
+                Ердийн хог
+
+            </h2>
+
+            <p>
+
+                Дахин боловсруулах боломжгүй
+                энгийн хогийг энд ангилна.
+
+            </p>
+
+            <span class="category other">
+
+                🗑️ Бусад хог
+
+            </span>
+
+        </div>
+
+
+        <!-- GLASS -->
+
+        <div class="card">
+
+            <div class="emoji">
+
+                🫙
+
+            </div>
+
+            <h2>
+
+                Шил
+
+            </h2>
+
+            <p>
+
+                Шилэн сав болон шилэн зүйлсийг
+                дахин боловсруулах боломжтой.
+
+            </p>
+
+            <span class="category recycle">
+
+                ♻️ Дахивар хог
+
+            </span>
+
+        </div>
+
+
+        <!-- FOOD -->
+
+        <div class="card">
+
+            <div class="emoji">
+
+                🍎
+
+            </div>
+
+            <h2>
+
+                Хүнсний хог
+
+            </h2>
+
+            <p>
+
+                Жимс, ногооны үлдэгдэл зэрэг
+                хүнсний хогийг тусад нь ангилна.
+
+            </p>
+
+            <span class="category food">
+
+                🍎 Хүнсний хог
+
+            </span>
+
+        </div>
+
+
+        <!-- METAL -->
+
+        <div class="card">
+
+            <div class="emoji">
+
+                🥫
+
+            </div>
+
+            <h2>
+
+                Металл
+
+            </h2>
+
+            <p>
+
+                Лааз болон металл зүйлсийг
+                дахин боловсруулах боломжтой.
+
+            </p>
+
+            <span class="category recycle">
+
+                ♻️ Дахивар хог
+
+            </span>
+
+        </div>
+
+
+        <!-- PAPER -->
+
+        <div class="card">
+
+            <div class="emoji">
+
+                📄
+
+            </div>
+
+            <h2>
+
+                Цаас
+
+            </h2>
+
+            <p>
+
+                Сонин, дэвтэр, цаасыг
+                тусад нь ангилаарай.
+
+            </p>
+
+            <span class="category paper">
+
+                📄 Цаасан хог
+
+            </span>
+
+        </div>
+
+
+        <!-- PLASTIC -->
+
+        <div class="card">
+
+            <div class="emoji">
+
+                🧴
+
+            </div>
+
+            <h2>
+
+                Хуванцар
+
+            </h2>
+
+            <p>
+
+                Хуванцар сав болон хуванцар
+                зүйлсийг дахин боловсруулж болно.
+
+            </p>
+
+            <span class="category recycle">
+
+                ♻️ Дахивар хог
+
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- ============================
+         PANDA TIP
+    ============================= -->
+
+    <div class="tip">
+
+        <div class="panda">
+
+            🐼
+
+        </div>
+
+
+        <div class="tip-text">
+
+            <h2>
+
+                🐼 Panda-гийн зөвлөгөө
+
+            </h2>
+
+
+            <p>
+
+                Хогоо зөв ангилах бүртээ
+                чи дэлхийгээ хамгаалж байна! 🌱
+                <br>
+
+                Зөв ангилья, цэвэр дэлхийтэй байя! 🌍💚
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+</main>
+
+
+</body>
+
+</html>
