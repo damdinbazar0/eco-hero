@@ -1,8 +1,7 @@
 
 from flask import Flask, render_template, request
-import tensorflow as tf
+from ultralytics import YOLO
 from PIL import Image
-import numpy as np
 import os
 import uuid
 
@@ -10,16 +9,16 @@ app = Flask(__name__)
 
 
 # ==========================================
-# LOAD CNN MODEL
+# LOAD YOLO26 MODEL
 # ==========================================
 
-model = tf.keras.models.load_model(
-    "model/waste_model.keras"
+model = YOLO(
+    "runs/classify/train/weights/best.pt"
 )
 
 
 # ==========================================
-# CNN CLASSES
+# YOLO26 CLASSES
 # ==========================================
 
 class_names = [
@@ -31,13 +30,12 @@ class_names = [
     "metal",
     "paper",
     "plastic",
-    "shoes",
     "trash"
 ]
 
 
 # ==========================================
-# 10 CLASSES → 5 MAIN CATEGORIES
+# 9 CLASSES → 5 MAIN CATEGORIES
 # ==========================================
 
 categories = {
@@ -111,9 +109,8 @@ categories = {
         "color": "other",
         "message":
             "Энэ хувцас байна! 👕 "
-            "Бусад ангилалын хогийн саванд хийгээрэй!"
+            "Бусад ангиллын хогийн саванд хийгээрэй!"
     },
-
 
     "trash": {
         "name": "Бусад хог",
@@ -121,46 +118,37 @@ categories = {
         "color": "other",
         "message":
             "Энэ бол ердийн хог байна! 🗑️ "
-            "Бусад ангилалын хогийн саванд хийгээрэй!"
+            "Бусад ангиллын хогийн саванд хийгээрэй!"
     }
 }
 
 
 # ==========================================
-# PREDICT IMAGE
+# PREDICT IMAGE WITH YOLO26
 # ==========================================
 
 def predict_image(image):
 
     image = image.convert("RGB")
 
-    image = image.resize((180, 180))
-
-    image_array = np.array(image)
-
-    image_array = np.expand_dims(
-        image_array,
-        axis=0
+    # YOLO26 performs its own resizing/preprocessing
+    results = model(
+        image,
+        verbose=False
     )
 
-    prediction = model.predict(
-        image_array,
-        verbose=0
-    )
+    result_data = results[0]
 
-    predicted_index = np.argmax(
-        prediction[0]
-    )
+    # Get highest-confidence class
+    predicted_index = result_data.probs.top1
 
-    predicted_class = class_names[
+    predicted_class = result_data.names[
         predicted_index
     ]
 
-    confidence = (
-        float(
-            prediction[0][predicted_index]
-        ) * 100
-    )
+    confidence = float(
+        result_data.probs.top1conf
+    ) * 100
 
     result = categories[
         predicted_class
@@ -204,7 +192,6 @@ def classify():
 
     error = None
 
-
     if request.method == "POST":
 
         if "image" not in request.files:
@@ -218,9 +205,7 @@ def classify():
                 error=error
             )
 
-
         file = request.files["image"]
-
 
         if file.filename == "":
 
@@ -233,7 +218,6 @@ def classify():
                 error=error
             )
 
-
         # ==================================
         # SAVE UPLOADED IMAGE
         # ==================================
@@ -243,23 +227,19 @@ def classify():
             exist_ok=True
         )
 
-
         filename = (
             str(uuid.uuid4())
             + ".jpg"
         )
-
 
         image_path = os.path.join(
             "static/uploads",
             filename
         )
 
-
         file.save(
             image_path
         )
-
 
         # ==================================
         # PREDICT
@@ -282,7 +262,6 @@ def classify():
                 "алдаа гарлаа: "
                 + str(e)
             )
-
 
     return render_template(
         "index.html",
@@ -313,3 +292,4 @@ if __name__ == "__main__":
     app.run(
         debug=True
     )
+
