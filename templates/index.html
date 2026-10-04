@@ -919,10 +919,12 @@ async function openCamera() {
     try {
 
         cameraStream =
-            await navigator.mediaDevices.getUserMedia({
-                video: true,
-                audio: false
-            });
+        await navigator.mediaDevices.getUserMedia({
+        video: {
+            facingMode: "user"
+        },
+        audio: false
+        });
 
         camera.srcObject = cameraStream;
 
