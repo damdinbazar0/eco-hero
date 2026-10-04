@@ -1,4 +1,3 @@
-
 from flask import Flask, render_template, request
 from ultralytics import YOLO
 from PIL import Image
@@ -39,84 +38,138 @@ class_names = [
 categories = {
 
     "battery": {
-        "name": "Аюултай хог",
+        "name_mn": "Аюултай хог",
+        "name_en": "Hazardous Waste",
         "emoji": "🔋",
         "color": "danger",
-        "message":
+
+        "message_mn":
             "Энэ батерей байна! 🔋 "
-            "Аюултай хог тул тусгай хогийн саванд хийгээрэй!"
+            "Аюултай хог тул тусгай хогийн саванд хийгээрэй!",
+
+        "message_en":
+            "This is a battery! 🔋 "
+            "Please put it in the hazardous waste bin!"
     },
 
     "biological": {
-        "name": "Хүнсний хог",
+        "name_mn": "Хүнсний хог",
+        "name_en": "Food Waste",
         "emoji": "🍎",
         "color": "food",
-        "message":
+
+        "message_mn":
             "Энэ бол хүнсний хог байна! 🍎 "
-            "Хүнсний хогийн саванд хийгээрэй!"
+            "Хүнсний хогийн саванд хийгээрэй!",
+
+        "message_en":
+            "This is food waste! 🍎 "
+            "Please put it in the food waste bin!"
     },
 
     "cardboard": {
-        "name": "Цаасан хог",
+        "name_mn": "Цаасан хог",
+        "name_en": "Paper Waste",
         "emoji": "📦",
         "color": "paper",
-        "message":
+
+        "message_mn":
             "Энэ бол бор цаас байна! 📦 "
-            "Цаасны хогийн саванд хийгээрэй!"
+            "Цаасны хогийн саванд хийгээрэй!",
+
+        "message_en":
+            "This is cardboard! 📦 "
+            "Please put it in the paper waste bin!"
     },
 
     "paper": {
-        "name": "Цаасан хог",
+        "name_mn": "Цаасан хог",
+        "name_en": "Paper Waste",
         "emoji": "📄",
         "color": "paper",
-        "message":
+
+        "message_mn":
             "Энэ бол цаас байна! 📄 "
-            "Цаасны хогийн саванд хийгээрэй!"
+            "Цаасны хогийн саванд хийгээрэй!",
+
+        "message_en":
+            "This is paper! 📄 "
+            "Please put it in the paper waste bin!"
     },
 
     "plastic": {
-        "name": "Дахивар хог",
+        "name_mn": "Дахивар хог",
+        "name_en": "Recyclable Waste",
         "emoji": "🧴",
         "color": "recycle",
-        "message":
+
+        "message_mn":
             "Энэ бол хуванцар байна! 🧴 "
-            "Дахивар гэсэн тэмдэглэгээтэй хогийн саванд хийгээрэй!"
+            "Дахивар гэсэн тэмдэглэгээтэй хогийн саванд хийгээрэй!",
+
+        "message_en":
+            "This is plastic! 🧴 "
+            "Please put it in the recycling bin!"
     },
 
     "metal": {
-        "name": "Дахивар хог",
+        "name_mn": "Дахивар хог",
+        "name_en": "Recyclable Waste",
         "emoji": "🥫",
         "color": "recycle",
-        "message":
+
+        "message_mn":
             "Энэ бол металл байна! 🥫 "
-            "Дахивар гэсэн тэмдэглэгээтэй хогийн саванд хийгээрэй!"
+            "Дахивар гэсэн тэмдэглэгээтэй хогийн саванд хийгээрэй!",
+
+        "message_en":
+            "This is metal! 🥫 "
+            "Please put it in the recycling bin!"
     },
 
     "glass": {
-        "name": "Дахивар хог",
+        "name_mn": "Дахивар хог",
+        "name_en": "Recyclable Waste",
         "emoji": "🫙",
         "color": "recycle",
-        "message":
+
+        "message_mn":
             "Энэ бол шил байна! 🫙 "
-            "Дахивар гэсэн тэмдэглэгээтэй хогийн саванд хийгээрэй!"
+            "Дахивар гэсэн тэмдэглэгээтэй хогийн саванд хийгээрэй!",
+
+        "message_en":
+            "This is glass! 🫙 "
+            "Please put it in the recycling bin!"
     },
 
     "clothes": {
-        "name": "Бусад хог",
+        "name_mn": "Бусад хог",
+        "name_en": "Other Waste",
         "emoji": "👕",
         "color": "other",
-        "message":
+
+        "message_mn":
             "Энэ хувцас байна! 👕 "
-            "Бусад ангиллын хогийн саванд хийгээрэй!"
+            "Бусад ангиллын хогийн саванд хийгээрэй!",
+
+        "message_en":
+            "This is clothing! 👕 "
+            "Please put it in the other waste bin!"
     },
 
     "trash": {
-        "name": "Бусад хог",
+        "name_mn": "Бусад хог",
+        "name_en": "Other Waste",
         "emoji": "🗑️",
         "color": "other",
-        "message":
+
+        "message_mn":
             "Энэ бол ердийн хог байна! 🗑️ "
-            "Бусад ангиллын хогийн саванд хийгээрэй!"
+            "Бусад ангиллын хогийн саванд хийгээрэй!",
+
+        "message_en":
+            "This is general waste! 🗑️ "
+            "Please put it in the other waste bin!"
     }
 }
 
@@ -129,7 +182,6 @@ def predict_image(image):
 
     image = image.convert("RGB")
 
-    # YOLO26 performs its own resizing/preprocessing
     results = model(
         image,
         verbose=False
@@ -137,7 +189,7 @@ def predict_image(image):
 
     result_data = results[0]
 
-    # Get highest-confidence class
+    # Highest-confidence class
     predicted_index = result_data.probs.top1
 
     predicted_class = result_data.names[
@@ -148,6 +200,7 @@ def predict_image(image):
         result_data.probs.top1conf
     ) * 100
 
+    # Get category information
     result = categories[
         predicted_class
     ].copy()
@@ -185,12 +238,14 @@ def home():
 def classify():
 
     result = None
-
     image_path = None
-
     error = None
 
     if request.method == "POST":
+
+        # ==================================
+        # CHECK IMAGE
+        # ==================================
 
         if "image" not in request.files:
 
@@ -216,6 +271,7 @@ def classify():
                 error=error
             )
 
+
         # ==================================
         # SAVE UPLOADED IMAGE
         # ==================================
@@ -239,8 +295,9 @@ def classify():
             image_path
         )
 
+
         # ==================================
-        # PREDICT
+        # YOLO PREDICTION
         # ==================================
 
         try:
@@ -260,6 +317,11 @@ def classify():
                 "алдаа гарлаа: "
                 + str(e)
             )
+
+
+    # ======================================
+    # SHOW PAGE
+    # ======================================
 
     return render_template(
         "index.html",
@@ -282,7 +344,7 @@ def about():
 
 
 # ==========================================
-# RUN
+# RUN APP
 # ==========================================
 
 if __name__ == "__main__":
@@ -290,4 +352,3 @@ if __name__ == "__main__":
     app.run(
         debug=True
     )
-

@@ -2,17 +2,12 @@
 <html lang="mn">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Хогийн төрлүүд 🐼</title>
+<title>Зөв Ангилья</title>
 
 <style>
-
-/* ================================
-   RESET
-================================ */
 
 * {
     box-sizing: border-box;
@@ -22,15 +17,13 @@
 
 body {
     font-family: Arial, sans-serif;
-
     min-height: 100vh;
 
-    background:
-        linear-gradient(
-            135deg,
-            #e8fff0,
-            #eef8ff
-        );
+    background: linear-gradient(
+        135deg,
+        #e8fff0,
+        #eef8ff
+    );
 
     color: #173b29;
 }
@@ -41,15 +34,11 @@ body {
 ================================ */
 
 header {
-
     height: 75px;
-
     padding: 0 7%;
 
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
 
     background: rgba(255,255,255,0.92);
@@ -57,39 +46,27 @@ header {
     box-shadow:
         0 5px 20px
         rgba(0,0,0,0.05);
-
 }
 
 .logo {
-
     font-size: 27px;
-
     font-weight: bold;
-
 }
-
 
 nav {
-
     display: flex;
-
     align-items: center;
-
     gap: 12px;
-
 }
 
-
 nav a {
-
     display: inline-block;
 
-    text-decoration: none !important;
+    text-decoration: none;
 
     color: #173b29;
 
     font-weight: bold;
-
     font-size: 16px;
 
     padding: 10px 16px;
@@ -97,25 +74,62 @@ nav a {
     border-radius: 12px;
 
     transition: 0.2s;
-
 }
-
 
 nav a:hover {
-
     background: #e4f7e9;
-
     color: #2e9d57;
+}
 
+nav a.active {
+    background: #2e9d57;
+    color: white;
 }
 
 
-nav a.active {
+/* ================================
+   LANGUAGE
+================================ */
 
+.language-switch {
+    display: flex;
+    align-items: center;
+
+    gap: 4px;
+
+    padding: 4px;
+
+    background: #e8f8ed;
+
+    border-radius: 12px;
+}
+
+.lang-btn {
+    border: none;
+
+    background: transparent;
+
+    color: #527064;
+
+    padding: 7px 10px;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+.lang-btn:hover {
+    background: #d7f2df;
+}
+
+.lang-btn.active {
     background: #2e9d57;
-
     color: white;
-
 }
 
 
@@ -124,15 +138,12 @@ nav a.active {
 ================================ */
 
 .container {
-
     width: 100%;
-
     max-width: 1150px;
 
     margin: auto;
 
     padding: 55px 25px 70px;
-
 }
 
 
@@ -141,38 +152,27 @@ nav a.active {
 ================================ */
 
 .title {
-
     text-align: center;
 
     margin-bottom: 45px;
-
 }
 
-
 .title h1 {
-
     font-size: 46px;
 
     margin-bottom: 12px;
-
 }
-
 
 .title h1 span {
-
     color: #2e9d57;
-
 }
 
-
 .title p {
-
     color: #61756a;
 
     font-size: 18px;
 
     line-height: 1.6;
-
 }
 
 
@@ -181,19 +181,15 @@ nav a.active {
 ================================ */
 
 .cards {
-
     display: grid;
 
     grid-template-columns:
         repeat(3, 1fr);
 
     gap: 25px;
-
 }
 
-
 .card {
-
     background: white;
 
     border-radius: 25px;
@@ -209,53 +205,37 @@ nav a.active {
     transition:
         transform 0.25s,
         box-shadow 0.25s;
-
 }
 
-
 .card:hover {
-
-    transform:
-        translateY(-7px);
+    transform: translateY(-7px);
 
     box-shadow:
         0 20px 40px
         rgba(0,0,0,0.12);
-
 }
 
-
 .card .emoji {
-
     font-size: 60px;
 
     margin-bottom: 12px;
-
 }
 
-
 .card h2 {
-
     font-size: 23px;
 
     margin-bottom: 8px;
-
 }
 
-
 .card p {
-
     color: #61756a;
 
     line-height: 1.6;
 
     font-size: 16px;
-
 }
 
-
 .category {
-
     display: inline-block;
 
     margin-top: 15px;
@@ -265,9 +245,7 @@ nav a.active {
     border-radius: 20px;
 
     font-size: 14px;
-
     font-weight: bold;
-
 }
 
 
@@ -276,56 +254,36 @@ nav a.active {
 ================================ */
 
 .recycle {
-
     background: #e4f7e9;
-
     color: #247144;
-
 }
-
 
 .paper {
-
     background: #fff4d6;
-
     color: #9a7110;
-
 }
-
 
 .food {
-
     background: #ffe9e3;
-
     color: #c55335;
-
 }
-
 
 .danger {
-
     background: #ffe1e1;
-
     color: #c0392b;
-
 }
 
-
 .other {
-
     background: #eeeeee;
-
     color: #555;
-
 }
 
 
 /* ================================
-   PANDA TIP
+   HORSE TIP
 ================================ */
 
 .tip {
-
     margin-top: 45px;
 
     background: white;
@@ -337,7 +295,6 @@ nav a.active {
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     gap: 25px;
@@ -345,34 +302,41 @@ nav a.active {
     box-shadow:
         0 15px 35px
         rgba(0,0,0,0.07);
-
 }
 
+.horse {
+    width: 150px;
+    height: 150px;
 
-.panda {
+    flex-shrink: 0;
 
-    font-size: 75px;
+    display: flex;
 
+    align-items: center;
+    justify-content: center;
 }
 
+.horse img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+}
 
 .tip-text h2 {
-
     margin-bottom: 8px;
 
     font-size: 25px;
-
 }
 
-
 .tip-text p {
-
     color: #61756a;
 
     line-height: 1.6;
 
     font-size: 17px;
-
 }
 
 
@@ -380,76 +344,78 @@ nav a.active {
    MOBILE
 ================================ */
 
-@media(max-width: 850px) {
+@media(max-width: 900px) {
 
-    .cards {
+    header {
+        height: auto;
 
-        grid-template-columns:
-            repeat(2, 1fr);
+        min-height: 75px;
 
+        padding: 15px 4%;
+
+        flex-wrap: wrap;
+
+        gap: 10px;
     }
 
+    nav {
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .cards {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
 }
 
 
 @media(max-width: 600px) {
 
-    header {
-
-        padding: 0 15px;
-
-    }
-
-
     .logo {
-
-        font-size: 20px;
-
+        font-size: 19px;
     }
-
 
     nav {
-
         gap: 3px;
-
     }
-
 
     nav a {
+        font-size: 11px;
 
-        font-size: 12px;
-
-        padding: 8px;
-
+        padding: 7px;
     }
 
+    .language-switch {
+        padding: 3px;
+    }
+
+    .lang-btn {
+        padding: 6px 8px;
+    }
 
     .title h1 {
-
         font-size: 34px;
-
     }
-
 
     .cards {
-
         grid-template-columns: 1fr;
-
     }
 
-
     .tip {
-
         flex-direction: column;
 
         text-align: center;
-
     }
 
+    .horse {
+        width: 130px;
+        height: 130px;
+    }
 }
 
 </style>
-
 </head>
 
 
@@ -462,36 +428,60 @@ nav a.active {
 
 <header>
 
-    <div class="logo">
-
-        🐼 Зөв Ангилья
-
+    <div
+        class="logo"
+        data-mn="🐴 Зөв Ангилья"
+        data-en="🐴 Sort It Right">
+        🐴 Зөв Ангилья
     </div>
 
 
     <nav>
 
-        <a href="/">
-
+        <a
+            href="/"
+            data-mn="🏠 Нүүр"
+            data-en="🏠 Home">
             🏠 Нүүр
-
         </a>
 
 
-        <a href="/classify">
-
+        <a
+            href="/classify"
+            data-mn="📷 Хог ангилах"
+            data-en="📷 Sort Waste">
             📷 Хог ангилах
-
         </a>
 
 
         <a
             href="/about"
-            class="active">
-
+            class="active"
+            data-mn="♻️ Хогийн төрлүүд"
+            data-en="♻️ Waste Types">
             ♻️ Хогийн төрлүүд
-
         </a>
+
+
+        <div class="language-switch">
+
+            <button
+                type="button"
+                class="lang-btn"
+                data-lang="mn"
+                onclick="changeLanguage('mn')">
+                MN
+            </button>
+
+            <button
+                type="button"
+                class="lang-btn"
+                data-lang="en"
+                onclick="changeLanguage('en')">
+                EN
+            </button>
+
+        </div>
 
     </nav>
 
@@ -505,30 +495,30 @@ nav a.active {
 <main class="container">
 
 
+    <!-- TITLE -->
+
     <div class="title">
 
-        <h1>
-
-            ♻️ Хогийн
-            <span>төрлүүд</span>
-
+        <h1
+            data-mn="♻️ Хогийн төрлүүд"
+            data-en="♻️ Waste Types">
+            ♻️ Хогийн төрлүүд
         </h1>
 
 
-        <p>
-
+        <p
+            data-mn="Хогоо зөв ангилбал байгаль дэлхийдээ тусалж чадна! 🌍🌱"
+            data-en="Sorting waste correctly helps protect our planet! 🌍🌱">
             Хогоо зөв ангилбал байгаль дэлхийдээ
             тусалж чадна! 🌍🌱
-
         </p>
 
     </div>
 
 
-    <!-- ============================
+    <!-- ================================
          WASTE CARDS
-    ============================= -->
-
+    ================================= -->
 
     <div class="cards">
 
@@ -538,28 +528,27 @@ nav a.active {
         <div class="card">
 
             <div class="emoji">
-
                 🔋
-
             </div>
 
-            <h2>
-
+            <h2
+                data-mn="Батерей"
+                data-en="Battery">
                 Батерей
-
             </h2>
 
-            <p>
-
+            <p
+                data-mn="Батерей нь аюултай хог. Энгийн хогтой хамт бүү хаяарай."
+                data-en="Batteries are hazardous waste. Do not throw them away with general waste.">
                 Батерей нь аюултай хог.
                 Энгийн хогтой хамт бүү хаяарай.
-
             </p>
 
-            <span class="category danger">
-
+            <span
+                class="category danger"
+                data-mn="⚠️ Аюултай хог"
+                data-en="⚠️ Hazardous Waste">
                 ⚠️ Аюултай хог
-
             </span>
 
         </div>
@@ -570,28 +559,27 @@ nav a.active {
         <div class="card">
 
             <div class="emoji">
-
                 📦
-
             </div>
 
-            <h2>
-
+            <h2
+                data-mn="Картон"
+                data-en="Cardboard">
                 Картон
-
             </h2>
 
-            <p>
-
+            <p
+                data-mn="Хайрцаг болон картон цаасыг дахин боловсруулах боломжтой."
+                data-en="Boxes and cardboard can be recycled.">
                 Хайрцаг болон картон цаасыг
                 дахин боловсруулах боломжтой.
-
             </p>
 
-            <span class="category paper">
-
+            <span
+                class="category paper"
+                data-mn="📄 Цаасан хог"
+                data-en="📄 Paper Waste">
                 📄 Цаасан хог
-
             </span>
 
         </div>
@@ -602,28 +590,27 @@ nav a.active {
         <div class="card">
 
             <div class="emoji">
-
                 👕
-
             </div>
 
-            <h2>
-
+            <h2
+                data-mn="Хувцас"
+                data-en="Clothes">
                 Хувцас
-
             </h2>
 
-            <p>
-
+            <p
+                data-mn="Хуучин хувцсыг тусад нь цуглуулж, дахин ашиглаж болно."
+                data-en="Old clothes can be collected separately and reused.">
                 Хуучин хувцсыг тусад нь цуглуулж,
                 дахин ашиглаж болно.
-
             </p>
 
-            <span class="category other">
-
+            <span
+                class="category other"
+                data-mn="🗑️ Бусад хог"
+                data-en="🗑️ Other Waste">
                 🗑️ Бусад хог
-
             </span>
 
         </div>
@@ -634,28 +621,27 @@ nav a.active {
         <div class="card">
 
             <div class="emoji">
-
                 🗑️
-
             </div>
 
-            <h2>
-
+            <h2
+                data-mn="Ердийн хог"
+                data-en="General Waste">
                 Ердийн хог
-
             </h2>
 
-            <p>
-
+            <p
+                data-mn="Дахин боловсруулах боломжгүй энгийн хогийг энд ангилна."
+                data-en="Waste that cannot be recycled belongs in general waste.">
                 Дахин боловсруулах боломжгүй
                 энгийн хогийг энд ангилна.
-
             </p>
 
-            <span class="category other">
-
+            <span
+                class="category other"
+                data-mn="🗑️ Бусад хог"
+                data-en="🗑️ Other Waste">
                 🗑️ Бусад хог
-
             </span>
 
         </div>
@@ -666,28 +652,27 @@ nav a.active {
         <div class="card">
 
             <div class="emoji">
-
                 🫙
-
             </div>
 
-            <h2>
-
+            <h2
+                data-mn="Шил"
+                data-en="Glass">
                 Шил
-
             </h2>
 
-            <p>
-
+            <p
+                data-mn="Шилэн сав болон шилэн зүйлсийг дахин боловсруулах боломжтой."
+                data-en="Glass bottles and other glass items can be recycled.">
                 Шилэн сав болон шилэн зүйлсийг
                 дахин боловсруулах боломжтой.
-
             </p>
 
-            <span class="category recycle">
-
+            <span
+                class="category recycle"
+                data-mn="♻️ Дахивар хог"
+                data-en="♻️ Recyclable Waste">
                 ♻️ Дахивар хог
-
             </span>
 
         </div>
@@ -698,28 +683,27 @@ nav a.active {
         <div class="card">
 
             <div class="emoji">
-
                 🍎
-
             </div>
 
-            <h2>
-
+            <h2
+                data-mn="Хүнсний хог"
+                data-en="Food Waste">
                 Хүнсний хог
-
             </h2>
 
-            <p>
-
+            <p
+                data-mn="Жимс, ногооны үлдэгдэл зэрэг хүнсний хогийг тусад нь ангилна."
+                data-en="Food waste such as fruit and vegetable scraps should be sorted separately.">
                 Жимс, ногооны үлдэгдэл зэрэг
                 хүнсний хогийг тусад нь ангилна.
-
             </p>
 
-            <span class="category food">
-
+            <span
+                class="category food"
+                data-mn="🍎 Хүнсний хог"
+                data-en="🍎 Food Waste">
                 🍎 Хүнсний хог
-
             </span>
 
         </div>
@@ -730,28 +714,27 @@ nav a.active {
         <div class="card">
 
             <div class="emoji">
-
                 🥫
-
             </div>
 
-            <h2>
-
+            <h2
+                data-mn="Металл"
+                data-en="Metal">
                 Металл
-
             </h2>
 
-            <p>
-
+            <p
+                data-mn="Лааз болон металл зүйлсийг дахин боловсруулах боломжтой."
+                data-en="Cans and other metal items can be recycled.">
                 Лааз болон металл зүйлсийг
                 дахин боловсруулах боломжтой.
-
             </p>
 
-            <span class="category recycle">
-
+            <span
+                class="category recycle"
+                data-mn="♻️ Дахивар хог"
+                data-en="♻️ Recyclable Waste">
                 ♻️ Дахивар хог
-
             </span>
 
         </div>
@@ -762,28 +745,27 @@ nav a.active {
         <div class="card">
 
             <div class="emoji">
-
                 📄
-
             </div>
 
-            <h2>
-
+            <h2
+                data-mn="Цаас"
+                data-en="Paper">
                 Цаас
-
             </h2>
 
-            <p>
-
+            <p
+                data-mn="Сонин, дэвтэр, цаасыг тусад нь ангилаарай."
+                data-en="Sort newspapers, notebooks and paper separately.">
                 Сонин, дэвтэр, цаасыг
                 тусад нь ангилаарай.
-
             </p>
 
-            <span class="category paper">
-
+            <span
+                class="category paper"
+                data-mn="📄 Цаасан хог"
+                data-en="📄 Paper Waste">
                 📄 Цаасан хог
-
             </span>
 
         </div>
@@ -794,62 +776,65 @@ nav a.active {
         <div class="card">
 
             <div class="emoji">
-
                 🧴
-
             </div>
 
-            <h2>
-
+            <h2
+                data-mn="Хуванцар"
+                data-en="Plastic">
                 Хуванцар
-
             </h2>
 
-            <p>
-
+            <p
+                data-mn="Хуванцар сав болон хуванцар зүйлсийг дахин боловсруулж болно."
+                data-en="Plastic bottles and other plastic items can be recycled.">
                 Хуванцар сав болон хуванцар
                 зүйлсийг дахин боловсруулж болно.
-
             </p>
 
-            <span class="category recycle">
-
+            <span
+                class="category recycle"
+                data-mn="♻️ Дахивар хог"
+                data-en="♻️ Recyclable Waste">
                 ♻️ Дахивар хог
-
             </span>
 
         </div>
 
-
     </div>
 
 
-    <!-- ============================
-         PANDA TIP
-    ============================= -->
+    <!-- ================================
+         HORSE TIP
+    ================================= -->
 
     <div class="tip">
 
-        <div class="panda">
+        <div class="horse">
 
-            🐼
+            <img
+                src="{{ url_for('static', filename='images/horse.png') }}"
+                alt="Зөв Ангилья морь">
 
         </div>
 
 
         <div class="tip-text">
 
-            <h2>
-
-                🐼 Panda-гийн зөвлөгөө
-
+            <h2
+                data-mn="🐴 Морины зөвлөгөө"
+                data-en="🐴 Horse's Tip">
+                🐴 Морины зөвлөгөө
             </h2>
 
 
-            <p>
+            <p
+                data-mn="Хогоо зөв ангилах бүртээ чи дэлхийгээ хамгаалж байна! 🌱 Зөв ангилья, цэвэр дэлхийтэй байя! 🌍💚"
+                data-en="Every time you sort waste correctly, you are helping protect our planet! 🌱 Sort it right and keep our world clean! 🌍💚">
 
                 Хогоо зөв ангилах бүртээ
                 чи дэлхийгээ хамгаалж байна! 🌱
+
                 <br>
 
                 Зөв ангилья, цэвэр дэлхийтэй байя! 🌍💚
@@ -864,6 +849,89 @@ nav a.active {
 </main>
 
 
-</body>
+<!-- ================================
+     LANGUAGE SCRIPT
+================================ -->
 
+<script>
+
+function changeLanguage(lang) {
+
+    // Save selected language
+    localStorage.setItem(
+        "language",
+        lang
+    );
+
+
+    // Change HTML language
+    document.documentElement.lang = lang;
+
+
+    // Change all text
+    document
+        .querySelectorAll("[data-mn][data-en]")
+        .forEach(function(element) {
+
+            element.textContent =
+                element.getAttribute(
+                    "data-" + lang
+                );
+
+        });
+
+
+    // Remove active button
+    document
+        .querySelectorAll(".lang-btn")
+        .forEach(function(button) {
+
+            button.classList.remove(
+                "active"
+            );
+
+        });
+
+
+    // Add active button
+    const activeButton =
+        document.querySelector(
+            '.lang-btn[data-lang="' +
+            lang +
+            '"]'
+        );
+
+
+    if (activeButton) {
+
+        activeButton.classList.add(
+            "active"
+        );
+
+    }
+
+}
+
+
+// Load saved language
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        const savedLanguage =
+            localStorage.getItem(
+                "language"
+            ) || "mn";
+
+        changeLanguage(
+            savedLanguage
+        );
+
+    }
+);
+
+</script>
+
+
+</body>
 </html>
