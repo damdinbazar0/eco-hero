@@ -32,129 +32,136 @@ class_names = [
 
 
 # ==========================================
-# 9 CLASSES → 5 MAIN CATEGORIES
+# 9 CLASSES → 4 MAIN CATEGORIES
 # ==========================================
 
 categories = {
 
-    "battery": {
-        "name_mn": "Аюултай хог",
-        "name_en": "Hazardous Waste",
-        "emoji": "🔋",
-        "color": "danger",
-
-        "message_mn":
-            "Энэ батерей байна! 🔋 "
-            "Аюултай хог тул тусгай хогийн саванд хийгээрэй!",
-
-        "message_en":
-            "This is a battery! 🔋 "
-            "Please put it in the hazardous waste bin!"
-    },
-
-    "biological": {
-        "name_mn": "Хүнсний хог",
-        "name_en": "Food Waste",
-        "emoji": "🍎",
-        "color": "food",
-
-        "message_mn":
-            "Энэ бол хүнсний хог байна! 🍎 "
-            "Хүнсний хогийн саванд хийгээрэй!",
-
-        "message_en":
-            "This is food waste! 🍎 "
-            "Please put it in the food waste bin!"
-    },
-
-    "cardboard": {
-        "name_mn": "Цаасан хог",
-        "name_en": "Paper Waste",
-        "emoji": "📦",
-        "color": "paper",
-
-        "message_mn":
-            "Энэ бол бор цаас байна! 📦 "
-            "Цаасны хогийн саванд хийгээрэй!",
-
-        "message_en":
-            "This is cardboard! 📦 "
-            "Please put it in the paper waste bin!"
-    },
-
+    # ЦААС
     "paper": {
-        "name_mn": "Цаасан хог",
-        "name_en": "Paper Waste",
+        "name_mn": "Цаас",
+        "name_en": "Paper",
         "emoji": "📄",
         "color": "paper",
 
         "message_mn":
             "Энэ бол цаас байна! 📄 "
-            "Цаасны хогийн саванд хийгээрэй!",
+            "Цэнхэр хогийн саванд хийгээрэй!",
 
         "message_en":
             "This is paper! 📄 "
-            "Please put it in the paper waste bin!"
+            "Please put it in the blue bin!"
     },
 
-    "plastic": {
-        "name_mn": "Дахивар хог",
-        "name_en": "Recyclable Waste",
-        "emoji": "🧴",
-        "color": "recycle",
+    "cardboard": {
+        "name_mn": "Цаас",
+        "name_en": "Paper",
+        "emoji": "📦",
+        "color": "paper",
 
         "message_mn":
-            "Энэ бол хуванцар байна! 🧴 "
-            "Дахивар гэсэн тэмдэглэгээтэй хогийн саванд хийгээрэй!",
+            "Энэ бол картон цаас байна! 📦 "
+            "Цэнхэр өнгийн хогийн саванд хийгээрэй!",
 
         "message_en":
-            "This is plastic! 🧴 "
-            "Please put it in the recycling bin!"
+            "This is cardboard! 📦 "
+            "Please put it in the blue bin!"
+    },
+
+
+    # ШИЛ, ЛААЗ
+    "glass": {
+        "name_mn": "Шил, лааз",
+        "name_en": "Glass & Cans",
+        "emoji": "🫙",
+        "color": "glass",
+
+        "message_mn":
+            "Энэ бол шил байна! "
+            "Улбар шар өнгийн хогийн саванд хийгээрэй!",
+
+        "message_en":
+            "This is glass! "
+            "Please put it in the orange bin!"
     },
 
     "metal": {
-        "name_mn": "Дахивар хог",
-        "name_en": "Recyclable Waste",
+        "name_mn": "Шил, лааз",
+        "name_en": "Glass & Cans",
         "emoji": "🥫",
-        "color": "recycle",
+        "color": "glass",
 
         "message_mn":
-            "Энэ бол металл байна! 🥫 "
-            "Дахивар гэсэн тэмдэглэгээтэй хогийн саванд хийгээрэй!",
+            "Энэ бол лааз эсвэл металл байна! "
+            "Улбар шар өнгийн хогийн саванд хийгээрэй!",
 
         "message_en":
-            "This is metal! 🥫 "
-            "Please put it in the recycling bin!"
+            "This is a can or metal item! "
+            "Please put it in the orange bin!"
     },
 
-    "glass": {
-        "name_mn": "Дахивар хог",
-        "name_en": "Recyclable Waste",
-        "emoji": "🫙",
-        "color": "recycle",
+
+    # ХУВАНЦАР
+    "plastic": {
+        "name_mn": "Хуванцар",
+        "name_en": "Plastic",
+        "emoji": "♻️",
+        "color": "plastic",
 
         "message_mn":
-            "Энэ бол шил байна! 🫙 "
-            "Дахивар гэсэн тэмдэглэгээтэй хогийн саванд хийгээрэй!",
+            "Энэ бол хуванцар байна! "
+            "Ногоон өнгийн хогийн саванд хийгээрэй!",
 
         "message_en":
-            "This is glass! 🫙 "
-            "Please put it in the recycling bin!"
+            "This is plastic! "
+            "Please put it in the green bin!"
+    },
+
+
+    # БУСАД ХОГ
+    "battery": {
+        "name_mn": "Бусад хог",
+        "name_en": "Other Waste",
+        "emoji": "🗑️",
+        "color": "other",
+
+        "message_mn":
+            "Энэ бол бусад хог байна! "
+            "Хар өнгийн саванд хийгээрэй!",
+
+        "message_en":
+            "This is other waste! "
+            "Please put it in the black bin!"
+    },
+
+    "biological": {
+        "name_mn": "Бусад хог",
+        "name_en": "Other Waste",
+        "emoji": "🗑️",
+        "color": "other",
+
+        "message_mn":
+            "Энэ бол бусад хог байна! "
+            "Хар өнгийн саванд хийгээрэй!",
+
+        "message_en":
+           "This is other waste! "
+            "Please put it in the black bin!"
     },
 
     "clothes": {
         "name_mn": "Бусад хог",
         "name_en": "Other Waste",
-        "emoji": "👕",
+        "emoji": "🗑️",
         "color": "other",
 
         "message_mn":
-            "Энэ хувцас байна! 👕 "
-            "Бусад ангиллын хогийн саванд хийгээрэй!",
+            "Энэ бол бусад хог байна!"
+            "Хар өнгийн саванд хийгээрэй!",
 
         "message_en":
-            "This is clothing! 👕 "
-            "Please put it in the other waste bin!"
+            "This is other waste! "
+            "Please put it in the black bin!"
     },
 
     "trash": {
@@ -164,12 +171,12 @@ categories = {
         "color": "other",
 
         "message_mn":
-            "Энэ бол ердийн хог байна! 🗑️ "
-            "Бусад ангиллын хогийн саванд хийгээрэй!",
+            "Энэ бол бусад хог байна! "
+            "Хар өнгийн саванд хийгээрэй!",
 
         "message_en":
-            "This is general waste! 🗑️ "
-            "Please put it in the other waste bin!"
+            "This is other waste! "
+            "Please put it in the black bin!"
     }
 }
 
@@ -243,10 +250,7 @@ def classify():
 
     if request.method == "POST":
 
-        # ==================================
         # CHECK IMAGE
-        # ==================================
-
         if "image" not in request.files:
 
             error = "Зураг сонгоно уу!"
@@ -272,10 +276,7 @@ def classify():
             )
 
 
-        # ==================================
         # SAVE UPLOADED IMAGE
-        # ==================================
-
         os.makedirs(
             "static/uploads",
             exist_ok=True
@@ -296,10 +297,7 @@ def classify():
         )
 
 
-        # ==================================
         # YOLO PREDICTION
-        # ==================================
-
         try:
 
             image = Image.open(
@@ -319,10 +317,6 @@ def classify():
             )
 
 
-    # ======================================
-    # SHOW PAGE
-    # ======================================
-
     return render_template(
         "index.html",
         result=result,
@@ -341,6 +335,15 @@ def about():
     return render_template(
         "about.html"
     )
+
+
+# ==========================================
+# COMIC PAGE
+# ==========================================
+
+@app.route("/comic")
+def comic():
+    return render_template("comic.html")
 
 
 # ==========================================

@@ -1,1207 +1,2380 @@
 <!DOCTYPE html>
+
 <html lang="mn">
 
+
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
 
 <title>Зөв Ангилья 🐴</title>
 
+
+
 <style>
+
 * {
+
     box-sizing: border-box;
+
     margin: 0;
+
     padding: 0;
+
 }
 
+
+
 body {
+
     font-family: Arial, sans-serif;
+
     min-height: 100vh;
+
     background: linear-gradient(135deg, #e8fff0, #eef8ff);
+
     color: #173b29;
+
 }
+
+
 
 /* HEADER */
 
+
+
 header {
+
     height: 75px;
+
     padding: 0 7%;
+
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
+
     background: rgba(255,255,255,0.9);
+
     box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+
 }
+
+
 
 .logo {
+
     font-size: 27px;
+
     font-weight: bold;
+
 }
+
+
 
 nav {
+
     display: flex;
+
     align-items: center;
+
     gap: 12px;
+
 }
+
+
 
 nav a {
+
     display: inline-block;
+
     text-decoration: none !important;
+
     color: #173b29;
+
     font-weight: bold;
+
     font-size: 16px;
+
     padding: 10px 16px;
+
     border-radius: 12px;
+
     transition: 0.2s;
+
 }
+
+
 
 nav a:hover {
+
     background: #e4f7e9;
+
     color: #2e9d57;
+
 }
 
+
+
 nav a.active {
+
     background: #2e9d57;
+
     color: white;
+
 }
+
+
 
 /* LANGUAGE */
 
+
+
 .language-switch {
+
     display: flex;
+
     align-items: center;
+
     gap: 4px;
+
     padding: 4px;
+
     background: #e8f8ed;
+
     border-radius: 12px;
+
 }
+
+
 
 .lang-btn {
+
     border: none;
+
     background: transparent;
+
     color: #527064;
+
     padding: 7px 10px;
+
     border-radius: 9px;
+
     cursor: pointer;
+
     font-size: 12px;
+
     font-weight: bold;
+
     margin: 0;
+
 }
 
+
+
 .lang-btn.active {
+
     background: #2e9d57;
+
     color: white;
+
 }
+
+
 
 /* SCREEN */
 
+
+
 .screen {
+
     width: 100%;
+
     min-height: calc(100vh - 75px);
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     padding: 40px 20px;
+
 }
+
+
 
 /* CAMERA SCREEN */
 
+
+
 .camera-screen {
+
     width: 100%;
+
     max-width: 850px;
+
     text-align: center;
+
 }
+
+
 
 .camera-screen h1 {
+
     font-size: 48px;
+
     margin-bottom: 15px;
+
 }
+
+
 
 .camera-screen h1 span {
+
     color: #2e9d57;
+
 }
 
+
+
 .camera-screen > p {
+
     color: #61756a;
+
     font-size: 19px;
+
     line-height: 1.6;
+
     margin-bottom: 30px;
+
 }
+
+
 
 /* CAMERA CARD */
 
+
+
 .camera-card {
+
     background: white;
+
     padding: 35px;
+
     border-radius: 30px;
+
     box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+
 }
+
+
 
 button {
+
     border: none;
+
     padding: 15px 25px;
+
     border-radius: 15px;
+
     font-size: 17px;
+
     font-weight: bold;
+
     cursor: pointer;
+
     margin: 8px;
+
 }
+
+
 
 .camera-button {
+
     background: #2e9d57;
+
     color: white;
+
 }
+
+
 
 .photo-button {
+
     background: #173b29;
+
     color: white;
+
 }
+
+
 
 .upload-button {
+
     display: inline-block;
+
     padding: 15px 25px;
+
     border-radius: 15px;
+
     background: #e6f6eb;
+
     color: #247144;
+
     font-weight: bold;
+
     cursor: pointer;
+
     margin: 8px;
+
 }
+
+
 
 input[type="file"] {
+
     display: none;
+
 }
 
+
+
 .ai-button {
+
     background: #173b29;
+
     color: white;
+
     margin-top: 20px;
+
 }
+
+
 
 /* CAMERA */
 
+
+
 .camera-container {
+
     display: none;
+
     margin-top: 20px;
+
 }
 
+
+
 video {
+
     width: 100%;
+
     max-width: 650px;
+
     border-radius: 22px;
+
     background: #111;
+
 }
+
+
 
 /* PREVIEW */
 
+
+
 .preview {
+
     display: none;
+
     margin-top: 20px;
+
 }
 
+
+
 .preview img {
+
     max-width: 350px;
+
     width: 100%;
+
     border-radius: 20px;
+
 }
+
+
 
 /* RESULT */
 
+
+
 #resultScreen {
+
     display: none;
+
 }
+
+
 
 .result-wrapper {
+
     width: 100%;
-    max-width: 1150px;
+
+    max-width: 1000px;
+
 }
+
+
 
 .result-title {
+
     text-align: center;
+
     margin-bottom: 35px;
+
 }
+
+
 
 .result-title h1 {
+
     font-size: 42px;
+
 }
+
+
 
 .result-title span {
+
     color: #2e9d57;
+
 }
 
+
+
 .result-layout {
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
-    gap: 70px;
+
+    gap: 35px;
+
 }
+
+
 
 /* HORSE */
 
+
+
 .child-area {
+
     position: relative;
+
     width: 500px;
+
     height: 500px;
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
     animation: childPop 0.7s ease;
+
 }
+
+
 
 .result-horse {
+
     position: absolute;
-    left: -100px;
+
+    left: -180px;
+
     bottom: -20px;
+
     width: 500px;
+
     height: 500px;
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
 }
 
+
+
 .result-horse img {
+
     width: 100%;
+
     height: 100%;
+
     object-fit: contain;
+
     display: block;
+
 }
+
+
 
 /* SPEECH BUBBLE */
 
+
+
 .thinking {
+
     position: absolute;
-    top: 30px;
-    left: 250px;
+
+    top: 15px;
+
+    left: 220px;
+
     width: 300px;
-    min-height: 145px;
+
+    min-height: 205px;
+
     padding: 22px;
+
     background: white;
+
     border: 4px solid #173b29;
+
     border-radius: 30px;
-    font-size: 20px;
+
+    font-size: 17px;
+
     line-height: 1.5;
+
     box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+
     z-index: 20;
+
 }
+
+
 
 .thinking::before {
+
     content: "";
+
     position: absolute;
+
     left: -34px;
+
     bottom: 28px;
+
     width: 28px;
+
     height: 28px;
+
     background: white;
+
     border: 4px solid #173b29;
+
     border-radius: 50%;
+
 }
 
+
+
 .thinking::after {
+
     content: "";
+
     position: absolute;
+
     left: -52px;
+
     bottom: 14px;
+
     width: 15px;
+
     height: 15px;
+
     background: white;
+
     border: 3px solid #173b29;
+
     border-radius: 50%;
+
 }
+
+
 
 /* RESULT CARD */
 
+
+
 .result-card {
+
     width: 390px;
+
     background: white;
+
     padding: 35px;
+
     border-radius: 30px;
+
     text-align: center;
+
     box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+
     animation: resultSlide 0.7s ease;
+
 }
+
+
 
 .result-emoji {
+
     font-size: 80px;
+
     margin-bottom: 5px;
+
 }
+
+
 
 .result-card h2 {
+
     font-size: 34px;
+
     margin: 10px 0;
+
     color: #173b29;
+
 }
+
+
 
 .result-description {
+
     color: #61756a;
+
     line-height: 1.7;
+
     font-size: 17px;
+
 }
+
+
 
 .confidence {
+
     display: inline-block;
+
     margin-top: 20px;
+
     padding: 10px 18px;
+
     border-radius: 20px;
+
     background: #e4f7e9;
+
     color: #247144;
+
     font-weight: bold;
+
 }
+
+
 
 .new-photo {
+
     background: #2e9d57;
+
     color: white;
+
     margin-top: 25px;
+
 }
 
-.sound-button {
-    background: #ffd84d;
-    color: #173b29;
-    margin-top: 20px;
-}
 
-.sound-button:hover {
-    transform: scale(1.05);
-}
 
 /* ANIMATION */
 
+
+
 @keyframes childPop {
+
     from {
+
         opacity: 0;
+
         transform: scale(0.7);
+
     }
 
+
+
     to {
+
         opacity: 1;
+
         transform: scale(1);
+
     }
+
 }
+
+
 
 @keyframes resultSlide {
+
     from {
+
         opacity: 0;
+
         transform: translateX(50px);
+
     }
 
+
+
     to {
+
         opacity: 1;
+
         transform: translateX(0);
+
     }
+
 }
+
+
 
 /* MOBILE */
 
+
+
 @media(max-width: 850px) {
+
     header {
+
         padding: 0 20px;
+
     }
+
+
 
     .camera-screen h1 {
+
         font-size: 36px;
+
     }
+
+
 
     .result-title h1 {
+
         font-size: 32px;
+
     }
+
+
 
     .result-layout {
+
         flex-direction: column;
+
         gap: 20px;
+
     }
+
+
 
     .child-area {
+
         width: 420px;
+
         height: 400px;
+
         margin-bottom: -30px;
+
     }
+
+
 
     .result-horse {
+
         width: 240px;
+
         height: 240px;
+
         left: 20px;
+
         bottom: 40px;
+
     }
 
+
+
     .thinking {
+
         top: 80px;
+
         left: 240px;
+
         width: 250px;
+
         font-size: 17px;
+
     }
+
 }
+
+
 
 @media(max-width: 600px) {
+
     header {
+
         height: auto;
+
         padding: 12px;
+
         flex-direction: column;
+
         gap: 10px;
+
     }
+
+
 
     nav {
+
         gap: 3px;
+
         flex-wrap: wrap;
+
         justify-content: center;
+
     }
+
+
 
     nav a {
+
         font-size: 11px;
+
         padding: 7px;
+
     }
+
+
 
     .logo {
+
         font-size: 20px;
+
     }
+
+
 
     .camera-card {
+
         padding: 20px;
+
     }
+
+
 
     .child-area {
+
         width: 330px;
+
         height: 350px;
+
     }
+
+
 
     .result-horse {
+
         width: 180px;
+
         height: 180px;
+
         left: 0;
+
         bottom: 45px;
+
     }
+
+
 
     .thinking {
+
         width: 190px;
+
         top: 70px;
+
         left: 170px;
+
         padding: 15px;
+
         font-size: 14px;
+
     }
 
+
+
     .result-card {
+
         width: 100%;
+
     }
+
 }
+
+
+/* CSS WASTE BIN */
+.bin-wrap { margin-top: 16px; text-align: center; }
+
+.waste-bin {
+    position: relative;
+    width: 76px;
+    height: 88px;
+    margin: 0 auto;
+    border-radius: 7px 7px 12px 12px;
+    border: 3px solid rgba(0,0,0,.12);
+    box-shadow: inset -8px 0 rgba(0,0,0,.08), 0 6px 10px rgba(0,0,0,.15);
+}
+.waste-bin::before {
+    content: "";
+    position: absolute;
+    width: 88px;
+    height: 15px;
+    left: -9px;
+    top: -12px;
+    border-radius: 7px;
+    background: inherit;
+    border: 3px solid rgba(0,0,0,.12);
+}
+.waste-bin::after {
+    content: "♻";
+    position: absolute;
+    left: 0;
+    top: 24px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 34px;
+}
+.bin-wheels {
+    position: relative;
+    width: 76px;
+    height: 13px;
+    margin: -2px auto 0;
+}
+.bin-wheels::before, .bin-wheels::after {
+    content: "";
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #222;
+}
+.bin-wheels::before { left: 4px; }
+.bin-wheels::after { right: 4px; }
+
+.waste-bin.paper { background: #168be8; }
+.waste-bin.glass { background: #f28c28; }
+.waste-bin.plastic { background: #21a957; }
+.waste-bin.other { background: #333; }
+
+.bin-label {
+    margin-top: 6px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
 </style>
+
 </head>
+
+
 
 <body data-result="{{ 'true' if result else 'false' }}">
 
+
+
 <!-- HEADER -->
+
+
 
 <header>
 
+
+
     <div
+
         class="logo"
+
         data-mn="🐴 Зөв Ангилья"
+
         data-en="🐴 Sort It Right">
+
         🐴 Зөв Ангилья
+
     </div>
+
+
 
     <nav>
 
+
+
         <a
+
             href="/"
+
             data-mn="🏠 Нүүр"
+
             data-en="🏠 Home">
+
             🏠 Нүүр
+
         </a>
 
+
+
         <a
+
             href="/classify"
+
             class="active"
+
             data-mn="📷 Хог ангилах"
+
             data-en="📷 Sort Waste">
+
             📷 Хог ангилах
+
         </a>
+
+
 
         <a
+
             href="/about"
+
             data-mn="♻️ Хогийн төрлүүд"
+
             data-en="♻️ Waste Types">
+
             ♻️ Хогийн төрлүүд
+
         </a>
 
-        <div class="language-switch">
+
+
+        
+        <a href="/comic"
+           data-mn="📖 Комик"
+           data-en="📖 Comic">
+            📖 Комик
+        </a>
+
+<div class="language-switch">
+
+
 
             <button
+
                 type="button"
+
                 class="lang-btn"
+
                 data-lang="mn"
+
                 onclick="changeLanguage('mn')">
+
                 MN
+
             </button>
 
+
+
             <button
+
                 type="button"
+
                 class="lang-btn"
+
                 data-lang="en"
+
                 onclick="changeLanguage('en')">
+
                 EN
+
             </button>
+
+
 
         </div>
 
+
+
     </nav>
+
+
 
 </header>
 
 
+
+
+
 <!-- CAMERA SCREEN -->
+
+
 
 <section class="screen" id="cameraScreen">
 
+
+
     <div class="camera-screen">
 
+
+
         <h1
+
             data-mn="Хогоо зөв ангилцгаая! 🌍"
+
             data-en="Let's sort waste correctly! 🌍">
+
             Хогоо зөв ангилцгаая! 🌍
+
         </h1>
 
+
+
         <p
+
             data-mn="Хогоо камерын өмнө харуулаарай. AI чамд хогоо зөв ангилахад тусална!"
+
             data-en="Show your waste to the camera. AI will help you sort it correctly!">
+
             Хогоо камерын өмнө харуулаарай.
+
             AI чамд хогоо зөв ангилахад тусална!
+
         </p>
+
+
 
         <div class="camera-card">
 
+
+
             <!-- OPEN CAMERA -->
 
+
+
             <button
+
                 type="button"
+
                 class="camera-button"
+
                 onclick="openCamera()">
+
+
 
                 <span>📷</span>
 
+
+
                 <span
+
                     data-mn="Камер нээх"
+
                     data-en="Open Camera">
+
                     Камер нээх
+
                 </span>
+
+
 
             </button>
 
 
+
+
+
             <!-- UPLOAD -->
 
+
+
             <label
+
                 class="upload-button"
+
                 for="imageInput">
+
+
 
                 <span>📁</span>
 
+
+
                 <span
+
                     data-mn="Зураг сонгох"
+
                     data-en="Choose Image">
+
                     Зураг сонгох
+
                 </span>
+
+
 
             </label>
 
+
+
             <input
+
                 type="file"
+
                 id="imageInput"
+
                 accept="image/*">
+
+
+
 
 
             <!-- CAMERA -->
 
+
+
             <div
+
                 class="camera-container"
+
                 id="cameraContainer">
 
+
+
                 <video
+
                     id="camera"
+
                     autoplay
+
                     playsinline>
+
                 </video>
+
+
 
                 <br>
 
+
+
                 <button
+
                     type="button"
+
                     class="photo-button"
+
                     onclick="takePhoto()">
+
+
 
                     <span>📸</span>
 
+
+
                     <span
+
                         data-mn="Зураг авах"
+
                         data-en="Take Photo">
+
                         Зураг авах
+
                     </span>
+
+
 
                 </button>
 
+
+
             </div>
+
+
+
 
 
             <!-- PREVIEW -->
 
+
+
             <div
+
                 class="preview"
+
                 id="preview">
 
+
+
                 <img
+
                     id="previewImage"
+
                     alt="Selected image">
 
+
+
             </div>
+
+
+
 
 
             <!-- FORM -->
 
+
+
             <form
+
                 method="POST"
+
                 action="/classify"
+
                 enctype="multipart/form-data">
 
+
+
                 <input
+
                     type="file"
+
                     name="image"
+
                     id="finalImage"
+
                     hidden
+
                     required>
 
+
+
                 <button
+
                     class="ai-button"
+
                     type="submit">
+
+
 
                     <span>🤖</span>
 
+
+
                     <span
+
                         data-mn="AI-аар шалгах"
+
                         data-en="Check with AI">
+
                         AI-аар шалгах
+
                     </span>
+
+
 
                 </button>
 
+
+
             </form>
 
+
+
             <canvas
+
                 id="canvas"
+
                 style="display:none;">
+
             </canvas>
+
+
 
         </div>
 
+
+
     </div>
 
+
+
 </section>
+
+
+
 
 
 <!-- RESULT SCREEN -->
 
+
+
 <section
+
     class="screen"
+
     id="resultScreen">
+
+
 
     <div class="result-wrapper">
 
+
+
         <div class="result-title">
 
+
+
             <h1
+
                 data-mn="🌱 AI-ийн дүгнэлт"
+
                 data-en="🌱 AI Result">
+
                 🌱 AI-ийн дүгнэлт
+
             </h1>
 
+
+
         </div>
+
+
+
 
 
         <div class="result-layout">
 
+
+
             <!-- HORSE -->
+
+
 
             <div class="child-area">
 
+
+
                 <div class="thinking">
+
+
 
                     {% if result %}
 
+
+
                         <span
+
                             data-mn="💭 {{ result.message_mn }}"
+
                             data-en="💭 {{ result.message_en }}">
+
                             💭 {{ result.message_mn }}
+
                         </span>
+
+                        <div class="bin-wrap">
+                            <div class="waste-bin {{ result.color }}"></div>
+                            <div class="bin-wheels"></div>
+                            <div class="bin-label"
+                                 data-mn="{{ result.name_mn }}"
+                                 data-en="{{ result.name_en }}">
+                                {{ result.name_mn }}
+                            </div>
+                        </div>
+
+
 
                     {% else %}
 
+
+
                         <span
+
                             data-mn="💭 Би хогийг шалгаж байна..."
+
                             data-en="💭 I'm checking the waste...">
+
                             💭 Би хогийг шалгаж байна...
+
                         </span>
+
+
 
                     {% endif %}
 
+
+
                 </div>
+
+
+
 
 
                 <div class="result-horse">
 
+
+
                     <img
+
                         src="{{ url_for('static', filename='images/new-horse.png') }}"
+
                         alt="Зөв Ангилья морь">
+
+
 
                 </div>
 
+
+
             </div>
+
+
+
 
 
             <!-- RESULT CARD -->
 
+
+
             <div class="result-card">
+
+
 
                 {% if result %}
 
+
+
                     <div class="result-emoji">
+
                         {{ result.emoji }}
+
                     </div>
 
+
+
                     <h2
+
                         data-mn="{{ result.name_mn }}"
+
                         data-en="{{ result.name_en }}">
+
                         {{ result.name_mn }}
+
                     </h2>
 
+
+
                     <p
+
                         class="result-description"
+
                         data-mn="{{ result.message_mn }}"
+
                         data-en="{{ result.message_en }}">
+
                         {{ result.message_mn }}
+
                     </p>
+
+
 
                     <div class="confidence">
 
+
+
                         <span>🤖</span>
 
+
+
                         <span
+
                             data-mn="AI итгэл:"
+
                             data-en="AI confidence:">
+
                             AI итгэл:
+
                         </span>
+
+
 
                         {{ result.confidence }}%
 
+
+
                     </div>
+
+
 
                     <br>
 
 
-                    <button
-                        type="button"
-                        class="sound-button"
-                        onclick="playResultSound()">
-
-                        <span>🔊</span>
-
-                        <span
-                            data-mn="Дуу сонсох"
-                            data-en="Play Sound">
-                            Дуу сонсох
-                        </span>
-
-                    </button>
-
 
                     <button
+
                         type="button"
+
                         class="new-photo"
+
                         onclick="goBack()">
+
+
 
                         <span>📷</span>
 
+
+
                         <span
+
                             data-mn="Дахин зураг авах"
+
                             data-en="Take Another Photo">
+
                             Дахин зураг авах
+
                         </span>
+
+
 
                     </button>
 
-                    <audio id="resultSound"></audio>
+
+
+
 
                 {% else %}
 
+
+
                     <div class="result-emoji">
+
                         🤖
+
                     </div>
 
+
+
                     <h2
+
                         data-mn="AI шалгаж байна..."
+
                         data-en="AI is checking...">
+
                         AI шалгаж байна...
+
                     </h2>
+
+
 
                 {% endif %}
 
+
+
             </div>
+
+
 
         </div>
 
+
+
     </div>
+
+
 
 </section>
 
 
+
+
+
 <script>
+
+
 
 /* LANGUAGE */
 
+
+
 function changeLanguage(lang) {
+
+
 
     localStorage.setItem("language", lang);
 
+
+
     document.documentElement.lang = lang;
 
+
+
     document
+
         .querySelectorAll("[data-mn][data-en]")
+
         .forEach(function(element) {
 
+
+
             element.textContent =
+
                 element.getAttribute("data-" + lang);
+
+
 
         });
 
 
+
+
+
     document
+
         .querySelectorAll(".lang-btn")
+
         .forEach(function(button) {
+
+
 
             button.classList.remove("active");
 
+
+
         });
 
 
+
+
+
     const activeButton =
+
         document.querySelector(
+
             '.lang-btn[data-lang="' + lang + '"]'
+
         );
 
 
+
+
+
     if (activeButton) {
+
         activeButton.classList.add("active");
+
     }
+
 }
 
 
+
+
+
 document.addEventListener(
+
     "DOMContentLoaded",
+
     function() {
 
+
+
         const savedLanguage =
+
             localStorage.getItem("language") || "mn";
+
+
 
         changeLanguage(savedLanguage);
 
+
+
     }
+
 );
+
+
+
 
 
 /* CAMERA */
 
+
+
 let cameraStream = null;
+
+
+
 
 
 async function openCamera() {
 
+
+
     const cameraContainer =
+
         document.getElementById("cameraContainer");
 
+
+
     const camera =
+
         document.getElementById("camera");
+
+
 
     try {
 
+
+
         cameraStream =
+
         await navigator.mediaDevices.getUserMedia({
+
         video: {
+
             facingMode: "user"
+
         },
+
         audio: false
+
         });
+
+
 
         camera.srcObject = cameraStream;
 
+
+
         cameraContainer.style.display = "block";
 
+
+
     }
+
+
 
     catch(error) {
 
+
+
         const lang =
+
             localStorage.getItem("language") || "mn";
+
+
 
         if (lang === "en") {
 
+
+
             alert(
+
                 "Please allow camera access!"
+
             );
+
+
 
         } else {
 
+
+
             alert(
+
                 "Камер ашиглах зөвшөөрөл өгнө үү!"
+
             );
+
+
 
         }
 
+
+
         console.error(error);
 
+
+
     }
+
 }
+
+
+
 
 
 /* TAKE PHOTO */
 
+
+
 function takePhoto() {
 
+
+
     const camera =
+
         document.getElementById("camera");
 
+
+
     const canvas =
+
         document.getElementById("canvas");
 
+
+
     const preview =
+
         document.getElementById("preview");
 
+
+
     const previewImage =
+
         document.getElementById("previewImage");
 
+
+
     const finalImage =
+
         document.getElementById("finalImage");
+
+
+
 
 
     if (!camera.videoWidth) {
 
+
+
         const lang =
+
             localStorage.getItem("language") || "mn";
+
+
 
         if (lang === "en") {
 
+
+
             alert(
+
                 "Please wait until the camera is ready."
+
             );
+
+
 
         } else {
 
+
+
             alert(
+
                 "Камер бэлэн болтол түр хүлээнэ үү."
+
             );
+
+
 
         }
 
+
+
         return;
+
     }
 
 
+
+
+
     canvas.width = camera.videoWidth;
+
     canvas.height = camera.videoHeight;
 
 
+
+
+
     const context =
+
         canvas.getContext("2d");
 
 
+
+
+
     context.drawImage(
+
         camera,
+
         0,
+
         0,
+
         canvas.width,
+
         canvas.height
+
     );
+
+
+
 
 
     canvas.toBlob(
 
+
+
         function(blob) {
 
+
+
             const file =
+
                 new File(
+
                     [blob],
+
                     "camera.jpg",
+
                     {
+
                         type: "image/jpeg"
+
                     }
+
                 );
 
 
+
+
+
             const transfer =
+
                 new DataTransfer();
+
+
+
 
 
             transfer.items.add(file);
 
+
+
             finalImage.files =
+
                 transfer.files;
 
 
+
+
+
             previewImage.src =
+
                 URL.createObjectURL(blob);
 
+
+
             preview.style.display =
+
                 "block";
+
+
+
 
 
             /* STOP CAMERA */
 
+
+
             if (cameraStream) {
 
+
+
                 cameraStream
+
                     .getTracks()
+
                     .forEach(
+
                         function(track) {
+
                             track.stop();
+
                         }
+
                     );
 
+
+
                 cameraStream = null;
+
             }
+
+
+
 
 
             /* HIDE CAMERA */
 
+
+
             document
+
                 .getElementById(
+
                     "cameraContainer"
+
                 )
+
                 .style.display =
+
                 "none";
+
+
 
         },
 
+
+
         "image/jpeg",
 
+
+
         0.9
+
     );
+
 }
+
+
+
 
 
 /* UPLOAD IMAGE */
 
+
+
 document
+
     .getElementById("imageInput")
+
     .addEventListener(
+
+
 
         "change",
 
+
+
         function(event) {
 
+
+
             const file =
+
                 event.target.files[0];
 
 
+
+
+
             if (!file) {
+
                 return;
+
             }
 
 
+
+
+
             const preview =
+
                 document.getElementById(
+
                     "preview"
+
                 );
+
+
 
             const previewImage =
+
                 document.getElementById(
+
                     "previewImage"
+
                 );
 
+
+
             const finalImage =
+
                 document.getElementById(
+
                     "finalImage"
+
                 );
+
+
+
 
 
             previewImage.src =
+
                 URL.createObjectURL(file);
 
+
+
             preview.style.display =
+
                 "block";
 
 
+
+
+
             const transfer =
+
                 new DataTransfer();
+
+
 
             transfer.items.add(file);
 
+
+
             finalImage.files =
+
                 transfer.files;
+
         }
+
     );
+
+
+
 
 
 /* SHOW RESULT */
 
+
+
 const hasResult =
+
     document.body.dataset.result ===
+
     "true";
+
+
+
 
 
 if (hasResult) {
 
+
+
     document
+
         .getElementById(
+
             "cameraScreen"
+
         )
+
         .style.display =
+
         "none";
 
 
+
+
+
     document
+
         .getElementById(
+
             "resultScreen"
+
         )
+
         .style.display =
+
         "flex";
+
 }
+
+
+
 
 
 /* BACK */
 
+
+
 function goBack() {
 
+
+
     window.location.href =
+
         "/classify";
 
+
+
 }
+
+
+
 
 
 /* SOUND */
 
-function playResultSound() {
 
-    const sound =
-        document.getElementById(
-            "resultSound"
-        );
-
-    if (!sound) {
-        return;
-    }
-
-    sound.src =
-        "/static/sounds/{{ result.detected if result else '' }}.mp3";
-
-    sound.currentTime = 0;
-
-    sound.play().catch(
-        function(error) {
-
-            console.log(
-                "Audio тоглуулахад алдаа:",
-                error
-            );
-
-        }
-    );
-}
 
 </script>
 
+
+
 </body>
+
 </html>
